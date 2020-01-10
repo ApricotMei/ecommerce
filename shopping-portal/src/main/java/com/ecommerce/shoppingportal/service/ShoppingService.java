@@ -93,9 +93,11 @@ public class ShoppingService {
         order.setTaxRate(0.0625);
         order.setOrderDate(new Timestamp(System.currentTimeMillis()));
 
-        //producer send order to product service and account service
+        //step 3 producer send order to product service and account service
         producer.updateProductInventory(this.convertJsonToString(order));
-//        producer.updateAccountOrderHistory(this.convertJsonToString(order));
+
+        //step 4
+        producer.updateAccountOrderHistory(this.convertJsonToString(order));
     }
 
     public String convertJsonToString(Object o) {
