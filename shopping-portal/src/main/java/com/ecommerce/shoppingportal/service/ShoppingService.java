@@ -74,7 +74,7 @@ public class ShoppingService {
             }
 
             //step 2
-            double totalCost = unitPrice + amount;
+            double totalCost = unitPrice * amount;
             String accountUrl = "http://account-service/payment/" + totalCost;
             //ResponseEntity<String> responseEntity = restTemplate.exchange(accountUrl, HttpMethod.PUT, null,String.class);
             restTemplate.put(accountUrl, null);
