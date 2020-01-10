@@ -30,4 +30,10 @@ public class AccountService {
     public String getServerInfo() {
         return environment.getProperty("server.port");
     }
+
+    public void pay(double bill) {
+        double currentTotalBalance = repository.getWallet().getBalance();
+        repository.getWallet().setBalance(currentTotalBalance - bill);
+        System.out.println("total balance is reduced by " + bill);
+    }
 }

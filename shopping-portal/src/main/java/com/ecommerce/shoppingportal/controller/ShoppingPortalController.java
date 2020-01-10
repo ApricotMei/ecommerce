@@ -25,4 +25,10 @@ public class ShoppingPortalController {
         return service.getAccount();
     }
 
+    @GetMapping("order/{name}/{amount}")
+    public void orderProduct(@PathVariable String name,
+                             @PathVariable int amount) {
+        service.orderProduct(name, amount);
+    }
+
 }
